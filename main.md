@@ -2,7 +2,9 @@
 	require 'sinatra/base'
 文件[第1行](https://github.com/sinatra/sinatra/blob/v1.3.5/lib/sinatra/main.rb#L1)首先`require`进来sinatra/base，关于Sinatra所有的magic全部在那里。
 
-[第3行](https://github.com/sinatra/sinatra/blob/v1.3.5/lib/sinatra/main.rb#L3)定义一个Application类，继承自Sinatra::Base。
+	class Application < Base
+
+[第4行](https://github.com/sinatra/sinatra/blob/v1.3.5/lib/sinatra/main.rb#L4)定义一个Application类，继承自Sinatra::Base。
 
 	set :app_file, caller_files.first || $0
 
