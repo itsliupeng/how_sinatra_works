@@ -8,7 +8,7 @@
 
 	set :app_file, caller_files.first || $0
 
-[第9行](https://github.com/sinatra/sinatra/blob/v1.3.5/lib/sinatra/main.rb#L9)定义一个全局配置项`:app\_file`。当使用classic方式编写sinatra程序时，第一个require 'sinatra'的文件会被当作app\_file。所有其他和路径有关的配置选项都基于这个app\_file的路径设置。
+[第9行](https://github.com/sinatra/sinatra/blob/v1.3.5/lib/sinatra/main.rb#L9)定义一个全局配置项`:app_file`。当使用classic方式编写sinatra程序时，第一个require 'sinatra'的文件会被当作app\_file。所有其他和路径有关的配置选项都基于这个app\_file的路径设置。
 	
 	set :run, Proc.new { File.expand_path($0) == File.expand_path(app_file) }
 
@@ -16,11 +16,11 @@
 
 	 if run? && ARGV.any?
 
-[第13行](https://github.com/sinatra/sinatra/blob/v1.3.5/lib/sinatra/main.rb#L13)判断用户是否给app_file提供了命令行参数，如果run为true且有参数，则使用optparse处理参数。
+[第13行](https://github.com/sinatra/sinatra/blob/v1.3.5/lib/sinatra/main.rb#L13)判断用户是否给app_file提供了命令行参数，如果`run`为true且有参数，则使用optparse处理参数。
 
 	  at_exit { Application.run! if $!.nil? && Application.run? }
 
-[第25行](https://github.com/sinatra/sinatra/blob/v1.3.5/lib/sinatra/main.rb#L25)注册一个at\_exit事件，当ruby解析完我们的app\_file将要退出时，会触发我们注册的at\_exit事件。如果run为true且解析脚本的过程中没有遇到错误，则执行Sinatra::Application的run!方法，也就是会启动web服务器啦。
+[第25行](https://github.com/sinatra/sinatra/blob/v1.3.5/lib/sinatra/main.rb#L25)注册一个at\_exit事件，当ruby解析完我们的app\_file将要退出时，会触发我们注册的at\_exit事件。如果`run`为true且解析脚本的过程中没有遇到错误，则执行Sinatra::Application的`run!`方法，也就是会启动web服务器啦。
 
 	include Sinatra::Delegator
 
